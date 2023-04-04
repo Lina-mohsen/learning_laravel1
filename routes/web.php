@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  
-    return view('welcome');
-});
-Route::get('about', function () {
-    $name = 'lina';
-  //  return view('about',['name' => $name]);
-  //return view('about')-> with('name',$name);
-  return view('about' , compact('name'));
-  
+Route::get('/about',[TaskController::class,'index']);
+/*
+Route::post('insert', function (){
+  Db::table('task')->insert(['name'=>$_POST('name') , 'created_at'=> now(), 'updated_at'=>now()])
+return redirect->back();
+});*/
+
+
+
+
+Route::get('index' , function(){
+  $task = DB::table('task')->get();  
+  return view('tasks',compact('tasks'));
 });

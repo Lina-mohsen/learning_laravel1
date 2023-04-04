@@ -7,12 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> hello <?php echo $name ;?>  !  </h1>
-  <form  action "send" method="post"> 
-  @csrf
-    <input type="text" name="name" id="name" >
-    <input type="submit" value="send">
-</form>
+    <h1> hello <?php echo $task ;?>  !  </h1>
+
+    <ul>
+    @foreach($task as $task);
+        <li>
+        {{$task}}
+        <li>
+    </ul>
 
 </body>
 </html>
